@@ -11,6 +11,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass'
 gem 'bootswatch-rails'
+gem 'devise'
 
 
 group :development, :test do
