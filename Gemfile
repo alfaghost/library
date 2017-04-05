@@ -12,6 +12,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass'
 gem 'bootswatch-rails'
 gem 'devise'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 
 group :development, :test do
