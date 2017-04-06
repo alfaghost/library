@@ -1,0 +1,2 @@
+class Authorship < ApplicationRecord
+end
