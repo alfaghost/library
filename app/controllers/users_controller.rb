@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :admin_user, only: [:edit, :update, :destroy, :index, :show,]
+  before_action :admin_user, only: [:edit, :update, :destroy, :index, :show]
 
 
   def index
@@ -23,9 +23,6 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.role == '1'
-      @user.role = 'admin'
-    end
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
       redirect_to @user
