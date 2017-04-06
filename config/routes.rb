@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   resources :users
   resources :books
   resources :authors
+  resources :categories
   root 'pages#index'
 end
