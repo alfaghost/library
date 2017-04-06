@@ -1,6 +1,7 @@
 class Book < ApplicationRecord
   belongs_to :user
-  has_and_belongs_to_many :authors
+  has_many :authorships
+  has_many :authors, :through => :authorships
 
   default_scope { order("id DESC") }
 end
