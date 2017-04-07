@@ -26,3 +26,4 @@ book = Book.create!(:name => 'A Brief History of Time',
 50.times do
   User.first.books.create!(name: Faker::Name.name, description: Faker::Lorem.sentence(5))
 end
+

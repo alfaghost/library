@@ -16,7 +16,12 @@
 
         <%= f.fields_for :authorships do |ff| %>
           <%= f.select :authors, Author.all.collect { |p| [ p.name, p.id ] }, {},
-                       { :multiple => true, :size => 5, class: "form-control", } %>
+                       { :multiple => true, :size => 5, class: "form-control" } %>
+        <% end %>
+
+        <%= f.fields_for :categorizations do |ff| %>
+            <%= f.select :categories, Category.all.collect { |p| [ p.name, p.id ] }, {},
+                         { :multiple => true, :size => 5, class: "form-control" } %>
         <% end %>
 
 
