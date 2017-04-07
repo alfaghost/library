@@ -8,11 +8,16 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
+    @authors = Author.all
   end
 
   def create
     @book = current_user.books.build(book_params)
+    @authors = author_params[:authors].reject(&:empty?)
     if @book.save
+      @authors.each do |author|
+        @book.authorships.create([book_id: @book.id, author_id: author])
+      end
       redirect_to books_url, :flash => { :success => "Micropost created!" }
     else
       render 'pages/welcome'
@@ -46,7 +51,11 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:name, :description)
+    params.require(:book).permit(:name, :description, :authors)
+  end
+
+  def author_params
+    params.require(:book).permit(authors: [])
   end
 
   def admin_user
