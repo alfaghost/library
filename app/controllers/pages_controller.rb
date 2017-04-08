@@ -1,6 +1,9 @@
 class PagesController < ApplicationController
   def index
-    @categories = Category.all
-    @books = Book.find_categories(Category.first)
+     @categories = Category.all
+     @books = Book.all
   end
+
 end
+
+

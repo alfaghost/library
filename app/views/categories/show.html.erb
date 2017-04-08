@@ -1,2 +1,15 @@
-<h1><%= @category.name %></h1>
-<p><%= @category.description %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <p class="lead">Categories</p>
+      <%= render partial: 'shared/category', collection: @categories %>
+    </div>
+
+    <div class="col-md-9">
+      <div class="row">
+        <h1><%= @category.name %></h1>
+        <%= render partial: 'shared/book', collection: @books %>
+      </div>
+    </div>
+  </div>
+</div>
