@@ -6,6 +6,7 @@ class Book < ApplicationRecord
 
   accepts_nested_attributes_for :authors
 
+
   has_attached_file :image, styles: { large: '320x380>' }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 

@@ -8,6 +8,8 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
+    @authors = Author.all
+    @categories = Category.all
   end
 
   def create

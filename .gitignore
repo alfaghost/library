@@ -16,6 +16,7 @@
 # Ignore Byebug command history file.
 .byebug_history
 /config/database.yml
+/config/dropbox.yml
 Gemfile.lock
 /.idea/*
 /.idea/workspace.xml

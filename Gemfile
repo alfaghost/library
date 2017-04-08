@@ -15,6 +15,7 @@ gem 'devise'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'paperclip'
+gem 'paperclip-dropbox'
 
 
 group :development, :test do
