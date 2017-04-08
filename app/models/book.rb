@@ -1,5 +1,4 @@
 class Book < ApplicationRecord
-  belongs_to :user
   has_many :authorships, :dependent => :destroy
   has_many :categorizations, :dependent => :destroy
   has_many :categories, :through => :categorizations

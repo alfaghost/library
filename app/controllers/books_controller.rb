@@ -11,7 +11,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = current_user.books.build(book_params)
+    @book = Book.create(book_params)
     @authors = author_params[:authors].reject(&:empty?)
     @categories = category_params[:categories].reject(&:empty?)
     if @book.save
