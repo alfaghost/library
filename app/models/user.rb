@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :books
-
+  validates :name, presence: true
   after_initialize :set_default_role, if: :new_record?
 
   enum role: [:user, :admin]

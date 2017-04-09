@@ -15,7 +15,7 @@ class CategoriesController < ApplicationController
     if @category.save
       redirect_to categories_url, :flash => { :success => "Category created!" }
     else
-      render 'pages/welcome'
+      render 'new'
     end
   end
 

@@ -16,7 +16,7 @@ class AuthorsController < ApplicationController
     if @author.save
       redirect_to authors_url, :flash => { :success => "Author created!" }
     else
-      render 'pages/welcome'
+      render 'new'
     end
   end
 

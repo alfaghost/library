@@ -24,10 +24,10 @@ class BooksController < ApplicationController
       @categories.each do |category|
         @book.categorizations.create([book_id: @book.id, category_id: category])
       end
-
+      flash[:success] = "Book created"
       redirect_to books_url, :flash => { :success => "Micropost created!" }
     else
-      render 'pages/index'
+      render 'new'
     end
   end
 
