@@ -27,7 +27,7 @@ class BooksController < ApplicationController
 
       redirect_to books_url, :flash => { :success => "Micropost created!" }
     else
-      render 'pages/welcome'
+      render 'pages/index'
     end
   end
 
