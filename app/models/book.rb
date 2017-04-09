@@ -1,6 +1,6 @@
 class Book < ApplicationRecord
-  has_many :authorships, :dependent => :destroy
-  has_many :categorizations, :dependent => :destroy
+  has_many :authorships
+  has_many :categorizations
   has_many :categories, :through => :categorizations
   has_many :authors, :through => :authorships
 
