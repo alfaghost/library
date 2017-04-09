@@ -17,13 +17,8 @@ class BooksController < ApplicationController
     @authors = author_params[:authors].reject(&:empty?)
     @categories = category_params[:categories].reject(&:empty?)
     if @book.save
-      @authors.each do |author|
-        @book.authorships.create([book_id: @book.id, author_id: author])
-      end
+      create_relations
 
-      @categories.each do |category|
-        @book.categorizations.create([book_id: @book.id, category_id: category])
-      end
       flash[:success] = "Book created"
       redirect_to books_url, :flash => { :success => "Micropost created!" }
     else
@@ -47,7 +42,6 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @current_authors = @book.authors
     @current_categories = @book.categories
-    puts @current_authors
     @authors = Author.all
     @categories = Category.all
   end
@@ -62,13 +56,7 @@ class BooksController < ApplicationController
 
     if @book.update_attributes(book_params)
 
-      @authors.each do |author|
-        @book.authorships.create([book_id: @book.id, author_id: author])
-      end
-
-      @categories.each do |category|
-        @book.categorizations.create([book_id: @book.id, category_id: category])
-      end
+      create_relations
       flash[:success] = "Book updated"
       redirect_to books_url
     else
@@ -92,6 +80,16 @@ class BooksController < ApplicationController
 
   def admin_user
     redirect_to(root_url) unless current_user.admin?
+  end
+
+  def create_relations
+    @authors.each do |author|
+      @book.authorships.create([book_id: @book.id, author_id: author])
+    end
+
+    @categories.each do |category|
+      @book.categorizations.create([book_id: @book.id, category_id: category])
+    end
   end
 end
 
