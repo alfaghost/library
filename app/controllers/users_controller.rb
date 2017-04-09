@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :admin_user, only: [:edit, :update, :destroy, :index, :show]
+  before_action :admin_user, only: [:edit, :update, :destroy, :index]
 
 
   def index
