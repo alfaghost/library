@@ -43,6 +43,10 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find(params[:id])
+    @current_authors = @book.authors
+    puts @current_authors
+    @authors = Author.all
+    @categories = Category.all
   end
 
   def update
