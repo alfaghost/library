@@ -8,10 +8,12 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
+    @authors = Author.all
+    @categories = Category.all
   end
 
   def create
-    @book = current_user.books.build(book_params)
+    @book = Book.create(book_params)
     @authors = author_params[:authors].reject(&:empty?)
     @categories = category_params[:categories].reject(&:empty?)
     if @book.save
@@ -56,7 +58,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:name, :description)
+    params.require(:book).permit(:name, :description, :image)
   end
 
   def author_params
