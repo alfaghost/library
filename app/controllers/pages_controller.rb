@@ -1,5 +1,9 @@
 class PagesController < ApplicationController
   def index
-    render 'welcome'
+     @categories = Category.all
+     @books = Book.all
   end
+
 end
+
+

@@ -1,7 +1,7 @@
 @import "bootstrap-sprockets";
 
 // Import cerulean variables
-/*@import "bootswatch/lumen/variables";*/
+@import "bootswatch/lumen/variables";
 
 // Then bootstrap itself
 @import "bootstrap";
@@ -10,4 +10,4 @@
 
 
 // And finally bootswatch style itself
-/*@import "bootswatch/lumen/bootswatch";*/
+@import "bootswatch/lumen/bootswatch";
