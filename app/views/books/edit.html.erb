@@ -23,6 +23,10 @@
           <ul>
             <%= render partial: 'shared/authors', collection: @current_authors %>
           </ul>
+          <%= f.label 'Current categories:', class: 'control-label' %><br />
+          <ul>
+            <%= render partial: 'shared/authors', collection: @current_categories %>
+          </ul>
         </div>
 
         <%= f.fields_for :authorships do |ff| %>

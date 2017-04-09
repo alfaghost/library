@@ -44,6 +44,7 @@ class BooksController < ApplicationController
   def edit
     @book = Book.find(params[:id])
     @current_authors = @book.authors
+    @current_categories = @book.categories
     puts @current_authors
     @authors = Author.all
     @categories = Category.all
@@ -51,7 +52,21 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
+    @authors = author_params[:authors].reject(&:empty?)
+    @categories = category_params[:categories].reject(&:empty?)
+
+    @book.authorships.destroy_all
+    @book.categorizations.destroy_all
+
     if @book.update_attributes(book_params)
+
+      @authors.each do |author|
+        @book.authorships.create([book_id: @book.id, author_id: author])
+      end
+
+      @categories.each do |category|
+        @book.categorizations.create([book_id: @book.id, category_id: category])
+      end
       flash[:success] = "Book updated"
       redirect_to books_url
     else
