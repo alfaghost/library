@@ -22,7 +22,7 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @categories = Category.all
-    @books = Book.find_categories(@category)
+    @books = @category.books
   end
 
   def destroy

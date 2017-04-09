@@ -1,3 +1,18 @@
-<h1><%= @book.name %></h1>
-<%= image_tag @book.image.url(:large) %>
-<p><%= @book.description %></p>
+<div class="row">
+  <div class="col-lg-4">
+    <%= image_tag @book.image, class:'img-responsive img-rounded' %>
+  </div>
+  <div class="col-lg-8">
+    <h1><%= @book.name %></h1>
+    <p>Written by:</p>
+    <ul>
+      <%= render partial: 'shared/authors', collection: @authors %>
+    </ul>
+    <p>Categories:</p>
+    <ul>
+      <%= render partial: 'shared/categories', collection: @categories %>
+    </ul>
+    <p>Descriptin:</p>
+    <p><%= @book.description %></p>
+  </div>
+</div>
