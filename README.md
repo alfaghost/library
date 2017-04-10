@@ -10,6 +10,6 @@
 - Step 6. Use `./die.sh` to stop application work
 
 Admin login: `admin@mail.com`
-Admin pass:  `1233456`
+Admin pass:  `123456`
 
 
