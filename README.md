@@ -9,7 +9,7 @@
 - Step 5. Type `./start.sh` to start the app. App available on address [http://localhost:3000](http://localhost:3000)
 - Step 6. Use `./die.sh` to stop application work
 
-Admin login: admin@mail.com
-Admin pass:  1233456
+Admin login: `admin@mail.com`
+Admin pass:  `1233456`
 
 
