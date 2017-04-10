@@ -1,4 +1,4 @@
 class Categorization < ApplicationRecord
-  belongs_to :book, :dependent => :destroy
-  belongs_to :category, :dependent => :destroy
+  belongs_to :book
+  belongs_to :category
 end

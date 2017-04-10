@@ -51,10 +51,9 @@ class BooksController < ApplicationController
     @authors = author_params[:authors].reject(&:empty?)
     @categories = category_params[:categories].reject(&:empty?)
 
-    @book.authorships.destroy_all
-    @book.categorizations.destroy_all
-
     if @book.update_attributes(book_params)
+      @book.authorships.destroy_all
+      @book.categorizations.destroy_all
 
       create_relations
       flash[:success] = "Book updated"
